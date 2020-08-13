@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment2"
+    android:id="@+id/framid"
+    >
+
+
+
+
+
+
+
+
+
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mascotas_preferidas"
+        android:textSize="35dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="60dp">
+            <ImageView
+                android:id="@+id/fotorazadal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/dalmata"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/botonlike"
+                    android:layout_marginLeft="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/huesoblanco"
+                    android:layout_marginStart="20sp" />
+                <TextView
+                    android:id="@+id/Nombremascotaid"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_de_mascota"
+                    android:layout_marginLeft="35sp"
+                    android:layout_marginRight="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginEnd="10sp" />
+
+                <TextView
+                    android:id="@+id/likestxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="0sp"
+                    android:text="@string/like"
+                    android:textSize="30sp"
+                    android:textStyle="italic" />
+
+                <Button
+                    android:id="@+id/botonwesoamarillo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/wesoamarillo2"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carrrrdID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="60dp">
+            <ImageView
+                android:id="@+id/fotorrrazablanco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/samoyedo"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/botonrlike"
+                    android:layout_marginLeft="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/huesoblanco"
+                    android:layout_marginStart="20sp" />
+                <TextView
+                    android:id="@+id/Nombremascotarid"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_de_mascota"
+                    android:layout_marginLeft="35sp"
+                    android:layout_marginRight="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginEnd="10sp" />
+
+                <TextView
+                    android:id="@+id/likestxt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="0sp"
+                    android:text="@string/like"
+                    android:textSize="30sp"
+                    android:textStyle="italic" />
+
+                <Button
+                    android:id="@+id/botonwesoamarill3o"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/wesoamarillo2"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</GridLayout>
+
+
+
+
+
+
+
+
+</FrameLayout>
