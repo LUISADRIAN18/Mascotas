@@ -1,4 +1,4 @@
-package com.lagn.mascotas;
+package com.lagn.mascotas.vistafrag;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,12 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.lagn.mascotas.Mascotadapter;
+import com.lagn.mascotas.R;
+import com.lagn.mascotas.Razas;
+import com.lagn.mascotas.presentador.IRecyclerViewFragmentPresenter;
+import com.lagn.mascotas.presentador.RecyclerViewFragmentPresenter;
 
 import java.util.ArrayList;
 
-public class Fragment1 extends Fragment {
+public class Fragment1 extends Fragment implements IRecyclerViewFragmentView{
     private RecyclerView ListaRecyclerprros;
-    private ArrayList<Razas> razasprro;
+    private IRecyclerViewFragmentPresenter presenter;
+
     private FloatingActionButton bts;
 
 
@@ -26,45 +32,32 @@ public class Fragment1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
     View v= inflater.inflate(R.layout.fargment1,container,false);
-
-
-        ListaRecyclerprros=v.findViewById(R.id.recyclerView);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        ListaRecyclerprros.setLayoutManager(llm);
-        razaslistar();
-        inicaradaptador();
-        bts=v.findViewById(R.id.floatin);
+    ListaRecyclerprros=v.findViewById(R.id.recyclerView);
+    bts=v.findViewById(R.id.floatin);
+    presenter=new RecyclerViewFragmentPresenter(this,getContext());
 
     return v;
 
 
     }
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        ListaRecyclerprros.setLayoutManager(llm);
 
-    public void inicaradaptador(){
-        Mascotadapter adaptar= new Mascotadapter(razasprro,getActivity());
+    }
+
+    @Override
+    public Mascotadapter crearAdaptador(ArrayList<Razas> razas) {
+        Mascotadapter adaptar= new Mascotadapter(razas,getActivity());
+        return adaptar;
+    }
+
+    @Override
+    public void inicializarAdaptadorReView(Mascotadapter adaptar) {
         ListaRecyclerprros.setAdapter(adaptar);
 
 
-
     }
-
-
-    public void razaslistar( ){
-
-        razasprro=new ArrayList<>();
-        razasprro.add(new Razas("Samoyedo",R.drawable.samoyedo,R.id.botonlike,R.id.likestxt));
-        razasprro.add(new Razas("Ladrador",R.drawable.ladrador,R.id.botonlike,R.id.likestxt));
-        razasprro.add(new Razas("Husky",R.drawable.huky,R.id.botonlike,R.id.likestxt));
-        razasprro.add(new Razas("Dalmata",R.drawable.dalmata,R.id.botonlike,R.id.likestxt));
-        razasprro.add(new Razas("Akita",R.drawable.akita,R.id.botonlike,R.id.likestxt));
-
-
-
-    }
-
-
-
-
-
 }

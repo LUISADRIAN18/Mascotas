@@ -59,7 +59,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="20sp"
                 android:layout_marginLeft="0sp"
-                android:text="@string/like"
+                android:text="@string/Numero_de_Likes"
                 android:textSize="30sp"
                 android:textStyle="italic" />
 

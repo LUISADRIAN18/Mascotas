@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lagn.mascotas.db.ConstructorMascotas;
+
 import java.util.ArrayList;
 
 public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholder> {
@@ -19,7 +21,6 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
     ArrayList<Razas> razas;
     Activity activity;
 
-    String nbmf;
 
     public Mascotadapter(ArrayList<Razas> recibirazas,Activity activity) {
         this.razas = recibirazas;
@@ -39,32 +40,23 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
         final Razas rass = razas.get(position);
         holder.imgprro.setImageResource(rass.getFotoperro());
         holder.nombprrro.setText(rass.getRazaprro());
-        holder.numerolikes.setText(rass.getLikesdados());
+        holder.numerolikes.setText(String.valueOf(rass.getLikesdados()));
 
 
         holder.btlikes.setOnClickListener(new View.OnClickListener() {
-            int suma=0;
+            //int suma=0;
 
             @Override
             public void onClick(View view) {
+                //suma=suma+1;
+                //holder.numerolikes.setText(suma+"");
 
-
-                suma=suma+1;
-
-
-                  holder.numerolikes.setText(suma+"");
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darLike(rass);
+                holder.numerolikes.setText(constructorMascotas.obternerLike(rass));
 
             }
         });
-
-
-        holder.nombprrro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(activity,rass.getRazaprro(),Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
 
     @Override
@@ -77,16 +69,16 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
         private TextView nombprrro;
         private Button btlikes;
         private TextView numerolikes;
-        private String suama;
+
 
 
         public razasholder(@NonNull View itemView) {
             super(itemView);
 
-            imgprro=itemView.findViewById(R.id.fotoraza);
-            nombprrro=itemView.findViewById(R.id.Nombremascotaid);
-            btlikes=itemView.findViewById(R.id.botonlike);
-            numerolikes=itemView.findViewById(R.id.likestxt);
+            imgprro= (ImageView) itemView.findViewById(R.id.fotoraza);
+            nombprrro= (TextView) itemView.findViewById(R.id.Nombremascotaid);
+            btlikes= (Button) itemView.findViewById(R.id.botonlike);
+            numerolikes= (TextView) itemView.findViewById(R.id.likestxt);
 
 
 

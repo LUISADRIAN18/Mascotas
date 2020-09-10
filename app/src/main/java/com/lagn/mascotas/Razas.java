@@ -1,24 +1,39 @@
 package com.lagn.mascotas;
 
 public class Razas {
-
+private int id;
 private String razaprro;
 private int Fotoperro;
 private int boton;
+private int Likesdados;
+
+
+    public Razas(String razaprro, int fotoperro, int numerolikes) {
+        this.razaprro = razaprro;
+        this.Fotoperro = fotoperro;
+
+        this.Likesdados=numerolikes;
+
+    }
+
+    public Razas() {
+
+    }
 
     public void setLikesdados(int likesdados) {
         Likesdados = likesdados;
     }
+    private int sumalk=0;
 
-    private int Likesdados;
-private int sumalk=0;
 
-    public Razas(String razaprro, int fotoperro, int boton, int numerolikes) {
-        this.razaprro = razaprro;
-        this.Fotoperro = fotoperro;
-        this.boton=boton;
-        this.Likesdados=numerolikes;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getSumalk() {

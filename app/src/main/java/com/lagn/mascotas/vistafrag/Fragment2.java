@@ -1,4 +1,4 @@
-package com.lagn.mascotas;
+package com.lagn.mascotas.vistafrag;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.lagn.mascotas.CardView;
+import com.lagn.mascotas.R;
 
 /**
  * A simple {@link Fragment} subclass.
