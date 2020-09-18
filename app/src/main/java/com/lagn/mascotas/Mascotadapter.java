@@ -29,18 +29,18 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
 
     @NonNull
     @Override
-    public razasholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public razasholder onCreateViewHolder( ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate
                 (R.layout.activity_card_view,parent,false);
         return new razasholder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final razasholder holder, int position) {
+    public void onBindViewHolder(final razasholder holder, int position) {
         final Razas rass = razas.get(position);
         holder.imgprro.setImageResource(rass.getFotoperro());
         holder.nombprrro.setText(rass.getRazaprro());
-        holder.numerolikes.setText(String.valueOf(rass.getLikesdados()));
+        holder.numerolikes.setText((rass.getLikesdados())+ " likes");
 
 
         holder.btlikes.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
 
                 ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
                 constructorMascotas.darLike(rass);
-                holder.numerolikes.setText(constructorMascotas.obternerLike(rass));
+                holder.numerolikes.setText(String.valueOf(constructorMascotas.obternerLike(rass)));
 
             }
         });
@@ -72,7 +72,7 @@ public class Mascotadapter extends RecyclerView.Adapter<Mascotadapter.razasholde
 
 
 
-        public razasholder(@NonNull View itemView) {
+        public razasholder(View itemView) {
             super(itemView);
 
             imgprro= (ImageView) itemView.findViewById(R.id.fotoraza);

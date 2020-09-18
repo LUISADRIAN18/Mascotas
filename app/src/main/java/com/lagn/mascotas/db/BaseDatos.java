@@ -64,6 +64,17 @@ public class BaseDatos extends SQLiteOpenHelper {
            razaActual.setRazaprro(registers.getString(1));
            razaActual.setFotoperro(registers.getInt(2));
 
+           String querylikes = "SELECT COUNT("+ConstanteBaseDatos.TABLE_LIKES_NUMERO_LIKES+") as likes " +
+                               "FROM " + ConstanteBaseDatos.TABLE_LIKES +
+                               " WHERE " +    ConstanteBaseDatos.TABLE_LIKES_ID_MASCOTA + "=" + razaActual.getId();
+           Cursor registrolikes = Database.rawQuery(querylikes,null);
+           if(registrolikes.moveToNext()){
+               razaActual.setLikesdados(registrolikes.getInt(0));
+
+           }else {
+               razaActual.setLikesdados(0);
+           }
+
            razas.add(razaActual);
 
 
@@ -97,7 +108,11 @@ public class BaseDatos extends SQLiteOpenHelper {
         if (registros.moveToNext()) {
             likes = registros.getInt(0);
         }
+
+
         database.close();
         return  likes;
     }
+
+
 }
